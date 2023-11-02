@@ -103,6 +103,21 @@
         .none {
             display: none;
         }
+
+        .page {
+            display: inline-flex;
+            background-color: bisque;
+        }
+
+        .page button {
+            background-color: black;
+            color: white;
+        }
+
+        .page .item {
+            margin: 10px 10px;
+            padding: 10px;
+        }
     </style>
     <div class="box-btn">
         <div class="title">
@@ -171,6 +186,11 @@
                 </div>
             </div>
         </div> -->
+    </div>
+    <div class="page" id="box-page">
+        <button class="item" id="left"> < </button>
+        <div class="item" id="page"></div>
+        <button class="item" id="right"> > </button>
     </div>
     <script src="./script.js"></script>
 </body>
