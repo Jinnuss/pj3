@@ -1,11 +1,11 @@
 // hiển thị tất cả sản phẩm
-fetch("https://dummyjson.com/products")
+fetch(`http://localhost:3000/products`)
     .then((response) => {
         return response.json();
     })
     .then((data) => {
         let html = "";
-        for (const product of data.products) {
+        for (const product of data) {
             html += `
             <div class="item">
             <div class="img">
@@ -27,14 +27,14 @@ fetch("https://dummyjson.com/products")
         box.innerHTML = html;
     })
 //tạo các nút theo các catrgory
-fetch("https://dummyjson.com/products")
+fetch("http://localhost:3000/products")
     .then((response) => {
         return response.json();
     })
     .then((data) => {
         let arr = [];
         let html = "";
-        for (const product of data.products) {
+        for (const product of data) {
             arr.push(product.category);
         }
         let newObj = new Set(arr);
@@ -49,14 +49,14 @@ fetch("https://dummyjson.com/products")
     })
 
 //hiển thị sp khi click vào button category
-fetch("https://dummyjson.com/products")
+fetch("http://localhost:3000/products")
     .then((response) => {
         return response.json();
     })
     .then((data) => {
         let arr = [];
         let html = "";
-        for (const product of data.products) {
+        for (const product of data) {
             arr.push(product.category);
         }
         let newObj = new Set(arr);
@@ -65,13 +65,13 @@ fetch("https://dummyjson.com/products")
             const btnItem = document.getElementById(item);
             btnItem.onclick = () => {
                 let content = "";
-                fetch(`https://dummyjson.com/products/category/${item}`)
+                fetch(`http://localhost:3000/products?category=${item}`)
                     .then((response) => {
                         return response.json();
                     })
                     .then((data) => {
                         let content = "";
-                        for (const product of data.products) {
+                        for (const product of data) {
                             content += `
                             <div class="item">
                                 <div class="img">
@@ -104,13 +104,13 @@ const btnSearch = document.getElementById("search-btn");
 btnSearch.onclick = () => {
     const content = inputSearch.value;
     console.log(content);
-    fetch(`https://dummyjson.com/products/search?q=${content}`)
+    fetch(`http://localhost:3000/products?q=${content}`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             let html = "";
-            for (const product of data.products) {
+            for (const product of data) {
                 html += `
             <div class="item">
             <div class="img">
@@ -144,13 +144,13 @@ const item1 = document.getElementById("containeritem1");
 const item2 = document.getElementById("containeritem2");
 const item3 = document.getElementById("containeritem3");
 item1.onclick = () => {
-    fetch("https://dummyjson.com/products")
+    fetch("http://localhost:3000/products")
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             let html = "";
-            for (const product of data.products) {
+            for (const product of data) {
                 html += `
             <div class="item">
                 <div class="img">
