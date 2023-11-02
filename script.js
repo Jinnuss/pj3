@@ -240,6 +240,7 @@ btnSearch.onclick = () => {
     const content = inputSearch.value;
     console.log(content);
     a = 1;
+    page.innerHTML = a;
 
     fetch(`http://localhost:3000/products?_page=${a}&_limit=6&q=${content}`)
         .then((response) => {
